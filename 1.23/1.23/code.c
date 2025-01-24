@@ -118,15 +118,71 @@
 //	print(arr, sz);
 //	return 0;
 //}
+//
+//int main()
+//{
+//    int i = 0;
+//    int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//    for (i = 0; i <= 12; i++)
+//    {
+//        arr[i] = 0;
+//        printf("hello bit\n");
+//    }
+//    return 0;
+//}
 
 int main()
 {
-    int i = 0;
-    int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
-    for (i = 0; i <= 12; i++)
-    {
-        arr[i] = 0;
-        printf("hello bit\n");
-    }
-    return 0;
+	char a[13][13] = { ' ' };
+	int i = 0, j = 0;
+	for (i = 0;i < 13;i++)
+	{
+		for (j = 0;j < 13;j++)
+			a[i][j] = ' ';
+	}
+	int count = 6;
+
+	int left = 6;
+	int right = 6;
+	i = 0;
+	while (count)
+	{
+		for (j = 0;j < 13; j++)
+		{
+			if (j >= left && j <= right)
+				a[i][j] = '*';
+		}
+		left--;
+		right++;
+		i++;
+		count--;
+	}
+	for (j = 0;j < 13;j++)
+		a[6][j] = '*';
+	i = 7;
+	count = 6;
+	left = 1;
+	right = 11;
+	while (count)
+	{
+
+		for (j = 0;j < 13; j++)
+		{
+			if (j >= left && j <= right)
+				a[i][j] = '*';
+		}
+		left++;
+		right--;
+		i++;
+		count--;
+	}
+	for (i = 0;i < 13;i++)
+	{
+		for (j = 0;j < 13;j++)
+		{
+			printf("%c", a[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
 }
