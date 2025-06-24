@@ -1,19 +1,20 @@
-#define _CRT_SECURE_NO_WARNINGS 1
 class Solution {
 public:
     int maxArea(vector<int>& height) {
-        int l = 0, r = height.size() - 1;
-        int ans = 0;
-        while (l < r) {
-            int area = min(height[l], height[r]) * (r - l);
-            ans = max(ans, area);
-            if (height[l] <= height[r]) {
-                ++l;
+        int left = 0, right = height.size() - 1, ret = 0;
+        while (left < right)
+        {
+            int v = min(height[left], height[right]) * (right - left);
+            ret = max(ret, v);
+            if (height[left] < height[right])
+            {
+                left++;
             }
-            else {
-                --r;
+            else
+            {
+                right--;
             }
         }
-        return ans;
+        return ret;
     }
 };
