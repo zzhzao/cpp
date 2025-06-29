@@ -1,26 +1,25 @@
-#define _CRT_SECURE_NO_WARNINGS 1
 class Solution {
 public:
     int triangleNumber(vector<int>& nums) {
-        int n = nums.size();
         sort(nums.begin(), nums.end());
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j < n; ++j) {
-                int left = j + 1, right = n - 1, k = j;
-                while (left <= right) {
-                    int mid = (left + right) / 2;
-                    if (nums[mid] < nums[i] + nums[j]) {
-                        k = mid;
-                        left = mid + 1;
-                    }
-                    else {
-                        right = mid - 1;
-                    }
+        int ret = 0;
+        int n = nums.size();
+        for (int i = n - 1; i >= 2; i--)
+        {
+            int left = 0;int right = i - 1;
+            while (left < right)
+            {
+                if (nums[left] + nums[right] > nums[i])
+                {
+                    ret += right - left;
+                    right--;
                 }
-                ans += k - j;
+                else
+                {
+                    left++;
+                }
             }
         }
-        return ans;
+        return ret;
     }
 };
