@@ -60,10 +60,6 @@ int getcount(char mine[ROWS][COLS],int x,int y)
 }
 
 
-
-
-
-
 void showboard(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y)
 {
 	if (x > 0 && y > 0 && x <= ROW && y <= COL)
