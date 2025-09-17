@@ -106,6 +106,7 @@ namespace zzh
 		_size++;
 
 	}
+
 	void string::insert(size_t pos, const char* str)
 	{
 		assert(pos <= _size);
@@ -153,6 +154,7 @@ namespace zzh
 		}
 		return npos;
 	}
+
 	size_t string::find(const char* sub, size_t pos) const
 	{
 		const char* p = strstr(_str, sub);
